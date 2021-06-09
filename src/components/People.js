@@ -1,14 +1,16 @@
 import { useQuery } from "react-query";
 
+// api
+import { fetchPeople } from "../api";
+
 // components
 import Person from "./people/Person";
 
-const fetchPeople = async () => {
-  const res = await fetch("http://swapi.dev/api/people/");
-  return res.json();
-};
+// constants
+import { API_KEY } from "../constants";
+
 const People = () => {
-  const { data, isLoading, isError } = useQuery("people", fetchPeople);
+  const { data, isLoading, isError } = useQuery(API_KEY.people, fetchPeople);
 
   if (isLoading) {
     return <div>Loading...</div>;

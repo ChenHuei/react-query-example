@@ -1,14 +1,16 @@
 import { useQuery } from "react-query";
 
-// components
-import Planet from "./planets/Planet";
+// api
+import { fetchPlanets } from "../api";
 
-const fetchPlanets = async () => {
-  const res = await fetch("http://swapi.dev/api/planets/");
-  return res.json();
-};
+// components
+import Planet from "./planets/xPlanet";
+
+// constants
+import { API_KEY } from "../constants";
+
 const Planets = () => {
-  const { data, isLoading, isError } = useQuery("planets", fetchPlanets);
+  const { data, isLoading, isError } = useQuery(API_KEY.planets, fetchPlanets);
 
   if (isLoading) {
     return <div>Loading...</div>;
