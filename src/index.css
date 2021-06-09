@@ -29,6 +29,11 @@ button:hover {
   border-color: #fff;
 }
 
+button:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
 .App {
   width: 960px;
   margin: 0 auto;
